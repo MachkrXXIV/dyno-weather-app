@@ -11,3 +11,8 @@
 7. create .gitignore | put node_modules
 8. create webpack config, just copy what I have
 9.
+
+## main learning objectives:
+1. retrain git workflow
+2. get comfortable using apis
+3. use typescript
