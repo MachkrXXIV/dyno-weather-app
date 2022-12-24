@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "watch": true,
+    "lib": ["DOM", "ES2021"],
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strict": true,
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "module": "esnext",
+    "noEmitOnError": true
+  }
+}
