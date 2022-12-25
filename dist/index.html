@@ -4,7 +4,26 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  <script defer src="main.3eb643ab397f4c47b61c.js"></script></head>
-  <body></body>
+    <title>Dyno</title>
+    <link rel="text/css" href="./styles/reset.scss" />
+  <script defer src="main.7a60d6cd11a54e7bcb12.js"></script></head>
+  <body>
+    <form action="" class="search-bar">
+      <input type="text" class="search-bar__input" placeholder="City..." />
+    </form>
+    <div class="report">
+      <h1 class="report__headline">Hi am I working?</h1>
+      <ul class="report__suggestions">
+        <!-- will be injectied via ts -->
+        <li class="report__suggestions--active">Do this</li>
+        <li class="report__suggestions--active">and this</li>
+        <li class="report__suggestions--active">then that</li>
+      </ul>
+    </div>
+    <section class="temperature">
+      <h1 class="temperature__value">Temperature</h1>
+      <h2 class="temperature__range">H: # L: #</h2>
+    </section>
+    <footer class="weather-data">Detailed report</footer>
+  </body>
 </html>

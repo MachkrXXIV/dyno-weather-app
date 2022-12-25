@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "OpenSans";
+  src: url("../assets/OpenSans-Regular.ttf") format("truetype");
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1 {
+  font-family: "OpenSans";
+  // font-family: "Courier New", Courier, monospace;
+}
