@@ -1,15 +1,54 @@
-@font-face {
-  font-family: "OpenSans";
-  src: url("../assets/OpenSans-Regular.ttf") format("truetype");
+@import url(./fonts.scss);
+
+$pallete: (
+  ocean-green: hsla(159, 62%, 47%, 1),
+  black: hsla(210, 9%, 13%, 1),
+  space-grey: hsla(192, 4%, 23%, 1),
+  dark-green: hsla(148, 55%, 30%, 1),
+  white: hsla(0, 0%, 96%, 1),
+);
+
+// App colors
+$bg-primary: map-get($pallete, black);
+$bg-secondary: map-get($pallete, space-grey);
+$bg-tertiary: map-get($pallete, ocean-green);
+$text-color-primary: map-get($pallete, white);
+$text-color-secondary: map-get($pallete, ocean-green);
+$shadow-black: rgb(30, 33, 36);
+$shadow-green: rgb(34, 119, 74);
+
+@mixin init-flex($direction, $justify: flex-start, $align: flex-start) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin card-shadow($color) {
+  box-shadow: 0 8px 32px 0 rgba($color, 0.37);
+}
+
+@mixin under-glow($color) {
+  box-shadow: rgba($color, 0.4) 0px 5px, rgba($color, 0.3) 0px 10px,
+    rgba($color, 0.2) 0px 15px, rgba($color, 0.1) 0px 20px,
+    rgba($color, 0.05) 0px 25px;
+}
+
+:root {
+  font-size: 16px;
+  color: $text-color-primary;
+  font-family: "OpenSans", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
 }
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-  font-family: "OpenSans", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-    sans-serif;
+  margin: 0;
+  padding: 0;
+  // border: 1px solid red;
 }
 
 input:focus,
@@ -19,20 +58,77 @@ button:focus {
   outline: none;
 }
 
+body {
+  @include init-flex(column, space-between, center);
+  height: 100%;
+  width: 100vw;
+  background-color: $bg-primary;
+}
+
 .search-bar {
-  display: flex;
-  justify-content: flex-end;
+  align-self: flex-end;
   margin-top: 0.5rem;
   margin-right: 0.25rem;
 
   &__input {
     padding-left: 0.5rem;
-    border: 2px solid black;
-    border-bottom: 2px solid black;
+    background-color: $bg-secondary;
+    color: $text-color-primary;
+    border: 1px solid $bg-secondary;
     border-radius: 0.7rem;
+
+    transition: all 200ms;
   }
 
   &__input:focus {
-    color: black;
+    @include under-glow($shadow-green);
+    color: $text-color-secondary;
+    border: 1px solid $bg-tertiary;
+  }
+}
+
+.main {
+  position: relative;
+  margin-top: 5rem;
+  bottom: 10rem;
+  display: flex;
+  padding: 0 1rem;
+}
+
+.report {
+  display: flex;
+  flex-flow: column;
+  font-size: 1.5rem;
+
+  &__headline {
+    line-height: 4rem;
+  }
+
+  &__suggestions {
+    position: relative;
+    list-style: none;
+    &--active {
+      border-left: 2px solid $bg-tertiary;
+      margin: 1rem 0;
+      padding-left: 0.25rem;
+    }
+  }
+}
+
+.temperature {
+  text-align: center;
+}
+
+.weather-data {
+  @include card-shadow($shadow-black);
+  padding: 0.75rem 5rem 0.25rem 5rem;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  font-size: 1.7rem;
+  background-color: $bg-tertiary;
+  cursor: pointer;
+
+  &:active {
+    background-color: blue;
   }
 }

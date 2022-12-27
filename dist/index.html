@@ -6,29 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dyno</title>
     <link rel="text/css" href="./styles/reset.scss" />
-  <script defer src="main.edafd51c36a990ab99e9.js"></script></head>
+  <script defer src="main.0919fe7859d7766a4e9c.js"></script></head>
   <body>
     <form action="" class="search-bar">
       <input
         type="text"
+        id="search-bar"
         class="search-bar__input"
         placeholder="City..."
         size="16"
       />
     </form>
-    <div class="report">
-      <h1 class="report__headline">Hi am I working?</h1>
-      <ul class="report__suggestions">
-        <!-- will be injectied via ts -->
-        <li class="report__suggestions--active">Do this</li>
-        <li class="report__suggestions--active">and this</li>
-        <li class="report__suggestions--active">then that</li>
-      </ul>
-    </div>
-    <section class="temperature">
-      <h1 class="temperature__value">Temperature</h1>
-      <h2 class="temperature__range">H: # L: #</h2>
-    </section>
+    <main class="main">
+      <div class="report">
+        <h1 class="report__headline">It's hot hot hot! You should...</h1>
+        <ul class="report__suggestions">
+          <!-- will be injectied via ts -->
+          <li class="report__suggestions--active">Do this</li>
+          <li class="report__suggestions--active">and this</li>
+          <li class="report__suggestions--active">then that</li>
+        </ul>
+      </div>
+      <section class="temperature">
+        <h1 class="temperature__value">Temperature</h1>
+        <h2 class="temperature__range">H: # L: #</h2>
+      </section>
+    </main>
     <footer class="weather-data">Detailed report</footer>
   </body>
 </html>

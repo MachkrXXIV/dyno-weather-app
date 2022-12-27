@@ -11,24 +11,27 @@
     <form action="" class="search-bar">
       <input
         type="text"
+        id="search-bar"
         class="search-bar__input"
         placeholder="City..."
         size="16"
       />
     </form>
-    <div class="report">
-      <h1 class="report__headline">Hi am I working?</h1>
-      <ul class="report__suggestions">
-        <!-- will be injectied via ts -->
-        <li class="report__suggestions--active">Do this</li>
-        <li class="report__suggestions--active">and this</li>
-        <li class="report__suggestions--active">then that</li>
-      </ul>
-    </div>
-    <section class="temperature">
-      <h1 class="temperature__value">Temperature</h1>
-      <h2 class="temperature__range">H: # L: #</h2>
-    </section>
+    <main class="main">
+      <div class="report">
+        <h1 class="report__headline">It's hot hot hot! You should...</h1>
+        <ul class="report__suggestions">
+          <!-- will be injectied via ts -->
+          <li class="report__suggestions--active">Do this</li>
+          <li class="report__suggestions--active">and this</li>
+          <li class="report__suggestions--active">then that</li>
+        </ul>
+      </div>
+      <section class="temperature">
+        <h1 class="temperature__value">Temperature</h1>
+        <h2 class="temperature__range">H: # L: #</h2>
+      </section>
+    </main>
     <footer class="weather-data">Detailed report</footer>
   </body>
 </html>
