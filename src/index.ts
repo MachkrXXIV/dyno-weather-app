@@ -4,17 +4,21 @@ import * as weather from "./modules/weather";
 
 const searchBarForm = document.querySelector(".search-bar");
 
-const initialLoad = async function initialPageLoad() {
-  const citySearch = weather.search();
-  const coordinateEndpoint = weather.buildCoords(citySearch);
-  const coordinateData = await weather.getCoords(coordinateEndpoint);
-  const forecastEndpoint = weather.buildForecast(coordinateData);
-  const forecastData = weather.getForecast(forecastEndpoint);
+const fetchCityTemp = async function () {
+  try {
+    const citySearch = weather.search();
+    const coordinateEndpoint = weather.buildCityCoordinatesUrl(citySearch);
+    const coordinateData = await weather.getCityCordinates(coordinateEndpoint);
+    const forecastEndpoint = weather.buildForecastUrl(coordinateData);
+    const forecastData = await weather.getCityForecast(forecastEndpoint);
 
-  return forecastData;
+    return forecastData;
+  } catch (err) {
+    console.error(err);
+  }
 };
 
 searchBarForm?.addEventListener("submit", (e) => {
   e.preventDefault();
-  initialLoad();
+  fetchCityTemp();
 });
