@@ -4,21 +4,29 @@ import * as weather from "./modules/weather";
 
 const searchBarForm = document.querySelector(".search-bar");
 
-const fetchCityTemp = async function () {
+const fetchCityTemp = async function (isInitialLoad = false) {
   try {
-    const citySearch = weather.search();
+    const citySearch = isInitialLoad ? "Fayetteville" : weather.search();
+    if (!citySearch) {
+      // if no value put, then stops function
+      return;
+    }
     const coordinateEndpoint = weather.buildCityCoordinatesUrl(citySearch);
     const coordinateData = await weather.getCityCordinates(coordinateEndpoint);
     const forecastEndpoint = weather.buildForecastUrl(coordinateData);
     const forecastData = await weather.getCityForecast(forecastEndpoint);
 
-    return forecastData;
+    const simplifiedForecastData = weather.convertData(forecastData);
+    return simplifiedForecastData;
   } catch (err) {
     console.error(err);
   }
 };
 
-searchBarForm?.addEventListener("submit", (e) => {
+fetchCityTemp(true);
+
+searchBarForm?.addEventListener("submit", async (e) => {
   e.preventDefault();
-  fetchCityTemp();
+  const weatherData = await fetchCityTemp();
+  console.log(weatherData);
 });

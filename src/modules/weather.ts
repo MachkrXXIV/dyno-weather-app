@@ -9,7 +9,15 @@ interface CoordinateData {
 }
 
 interface ForecastSimplifiedData {
+  classification: string;
   name: string;
+  country: string;
+  temp: number;
+  tempMin: number;
+  tempMax: number;
+  feelsLike: number;
+  humidity: number;
+  wind: number;
 }
 
 const search = function getUserSearch(): string {
@@ -41,7 +49,6 @@ const getCityCordinates = async function (url: string) {
       country: coordJson[0].country,
       state: coordJson[0].state,
     };
-    console.log(coordData);
     return coordData;
   } catch (err) {
     console.log(err);
@@ -52,14 +59,27 @@ const getCityForecast = async function (url: string) {
   try {
     const response = await fetch(url);
     const forecastJson = await response.json();
-    console.log(forecastJson); // main gets us temp, weather is title
     return forecastJson;
   } catch (err) {
     console.log(err);
   }
 };
 
-// const filterData = function filterForecastData(data) {};
+const convertData = function (data: any): ForecastSimplifiedData {
+  const weatherData: ForecastSimplifiedData = {
+    classification: data.weather[0].description,
+    name: data.name,
+    country: data.sys.country,
+    temp: data.main.temp,
+    tempMin: data.main.temp_min,
+    tempMax: data.main.temp_max,
+    feelsLike: data.main.feels_like,
+    humidity: data.main.humidity,
+    wind: data.wind.speed,
+  };
+  console.log(weatherData);
+  return weatherData;
+};
 
 export {
   search,
@@ -67,4 +87,5 @@ export {
   buildForecastUrl,
   getCityCordinates,
   getCityForecast,
+  convertData,
 };
