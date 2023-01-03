@@ -1,24 +1,5 @@
 import API_KEY from "../config";
-
-interface CoordinateData {
-  name: string;
-  lat: number;
-  lon: number;
-  country: string;
-  state?: string;
-}
-
-interface ForecastSimplifiedData {
-  classification: string;
-  name: string;
-  country: string;
-  temp: number;
-  tempMin: number;
-  tempMax: number;
-  feelsLike: number;
-  humidity: number;
-  wind: number;
-}
+import { ForecastSimplifiedData, CoordinateData } from "./interfaces";
 
 const search = function getUserSearch(): string {
   const cityName = <HTMLInputElement>document.getElementById("search-bar");
@@ -67,8 +48,9 @@ const getCityForecast = async function (url: string) {
 
 const convertData = function (data: any): ForecastSimplifiedData {
   const weatherData: ForecastSimplifiedData = {
-    classification: data.weather[0].description,
+    classification: data.weather[0].main,
     name: data.name,
+    description: data.weather[0].description,
     country: data.sys.country,
     temp: data.main.temp,
     tempMin: data.main.temp_min,
