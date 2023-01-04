@@ -29,7 +29,6 @@ fetchCityTemp(true);
 searchBarForm?.addEventListener("submit", async (e) => {
   e.preventDefault();
   const weatherData = await fetchCityTemp();
-  console.log(weatherData);
   const headline = getHeadline(weatherData);
-  getSuggestions(headline);
+  const suggestions = getSuggestions(headline);
 });
