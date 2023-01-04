@@ -23,6 +23,91 @@ const weatherModifierOptions = {
   Drizzle: "Pitter patter. It's drizzling outside. You should...",
   Mist: "MIST'd ya. Visibility is limited admist this mist. You should...",
   Clouds: "It's cloudy with a chance of meatballs! You should...",
+  Fog: "Fogs of war today! You should...",
+};
+
+const suggestions = {
+  // Attire
+  Summer: "Dress like a hot day in the summer, T-shirt and Shorts!",
+  Light: "Dress warm with 2-3 light layers",
+  Heavy: "Dress with heavy layers 3+",
+  Raingear: "Wear a rainjacket and bring an umbrella",
+  Sunglasses: "Put on some nice shades",
+  Hat: "Block out the sunlight with a hat",
+  Beanie: "Keep that noggin of yours warm with a beanie!",
+  Boots: "Wear your boots today, it's gonna get messy!",
+
+  // Warnings
+  Defrost: "Defrost your windshield",
+  Warmup: "Warm up your car before you go",
+  Watch: "Be more attentive while driving, watch the roads!",
+  Hydrate: "Drink more water today and have a water bottle handy",
+  Sunscreen: "Slap on some sunscreen",
+
+  // Activity
+  Inside: "Spend your time indoors",
+  Outside: "Get outside as it feels great",
+  Snow: "Go sledding, have a snowball fight, or make a snowman!",
+};
+
+const suggestionsMap = {
+  "Winter is coming! You should...": [
+    suggestions.Snow,
+    suggestions.Defrost,
+    suggestions.Heavy,
+    suggestions.Warmup,
+    suggestions.Beanie,
+  ],
+  "Rain is the name today! You should...": [
+    suggestions.Boots,
+    suggestions.Raingear,
+    suggestions.Inside,
+    suggestions.Watch,
+  ],
+  "Kachow! Storms invade the skies! You should...": [
+    suggestions.Boots,
+    suggestions.Raingear,
+    suggestions.Inside,
+    suggestions.Watch,
+  ],
+  "Pitter patter. It's drizzling outside. You should...": [
+    suggestions.Boots,
+    suggestions.Light,
+  ],
+  "MIST'd ya. Visibility is limited admist this mist. You should...": [
+    suggestions.Watch,
+    suggestions.Light,
+  ],
+  "It's cloudy with a chance of meatballs! You should...": [
+    suggestions.Outside,
+    suggestions.Light,
+  ],
+  "Fogs of war today! You should...": [suggestions.Watch],
+  "Brrr... it's freezing. You should...": [
+    suggestions.Defrost,
+    suggestions.Heavy,
+    suggestions.Warmup,
+    suggestions.Beanie,
+  ],
+  "It's a bit chilly! You should...": [suggestions.Light, suggestions.Beanie],
+  "The weather feels amazing today! You should...": [
+    suggestions.Outside,
+    suggestions.Hat,
+    suggestions.Sunscreen,
+    suggestions.Summer,
+  ],
+  "Expect to feel some heat today. You should...": [
+    suggestions.Summer,
+    suggestions.Sunscreen,
+    suggestions.Outside,
+    suggestions.Hydrate,
+  ],
+  "It's burning up today! You should...": [
+    suggestions.Summer,
+    suggestions.Sunscreen,
+    suggestions.Hat,
+    suggestions.Hydrate,
+  ],
 };
 
 const isWindy = function (weatherData: ForecastSimplifiedData) {
@@ -62,4 +147,11 @@ const getHeadline = function (weatherData: any) {
   return printTempCategory(weatherData.temp);
 };
 
-export default getHeadline;
+const getSuggestions = function (headline: string) {
+  console.log(suggestionsMap[headline as keyof typeof suggestionsMap]);
+  return suggestionsMap[headline as keyof typeof suggestionsMap];
+};
+
+export { getHeadline, getSuggestions };
+
+// do special keywords styling

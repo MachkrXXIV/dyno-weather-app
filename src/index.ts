@@ -1,7 +1,7 @@
 import "./styles/reset.scss";
 import "./styles/style.scss";
 import * as weather from "./modules/weather";
-import getHeadline from "./modules/report";
+import { getHeadline, getSuggestions } from "./modules/report";
 
 const searchBarForm = document.querySelector(".search-bar");
 
@@ -30,5 +30,6 @@ searchBarForm?.addEventListener("submit", async (e) => {
   e.preventDefault();
   const weatherData = await fetchCityTemp();
   console.log(weatherData);
-  getHeadline(weatherData);
+  const headline = getHeadline(weatherData);
+  getSuggestions(headline);
 });
