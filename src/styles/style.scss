@@ -63,6 +63,7 @@ body {
   height: 100%;
   width: 100vw;
   background-color: $bg-primary;
+  overflow: hidden;
 }
 
 .search-bar {
@@ -89,10 +90,10 @@ body {
 
 .main {
   position: relative;
-  margin-top: 5rem;
   bottom: 10rem;
   display: flex;
   padding: 0 1rem;
+  margin-top: Max(43%, 5rem);
 }
 
 .report {
@@ -126,15 +127,24 @@ body {
 
 .detailed-view {
   @include card-shadow($shadow-black);
+  height: 50%;
+  position: relative;
   padding: 0.75rem 5rem 0.25rem 5rem;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+  border-radius: 15px;
   font-size: 1.7rem;
   font-weight: bold;
   background-color: $bg-tertiary;
+  transition: all ease-in 200ms;
+  // transform: translateY(15rem);
   cursor: pointer;
+
+  &:hover {
+    transform: translateY(-2rem);
+    background-color: red;
+  }
 
   &:active {
     background-color: blue;
+    transform: translateY(-10rem);
   }
 }
