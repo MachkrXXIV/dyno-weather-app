@@ -170,6 +170,15 @@ const getIconClass = function (weatherData: any) {
   return iconMap[weatherData.classification as keyof typeof iconMap];
 };
 
-export { getHeadline, getSuggestions, getIconClass };
+const getDetailedFields = function (weatherData: ForecastSimplifiedData) {
+  return [
+    `Description: ${weatherData.description}`,
+    `Feels Like: ${Math.round(weatherData.feelsLike)}°F`,
+    `Wind: ${Math.round(weatherData.wind)} MPH`,
+    `Humidity: ${weatherData.humidity}%`,
+  ];
+};
+
+export { getHeadline, getSuggestions, getIconClass, getDetailedFields };
 
 // do special keywords styling

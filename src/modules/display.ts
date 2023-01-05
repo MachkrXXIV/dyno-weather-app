@@ -45,7 +45,9 @@ const displayHiAndLo = function (weatherData: any) {
 };
 
 const displayCityName = function (weatherData: any) {
-  const cityNameElement = <HTMLElement>document.querySelector(".detailed-view");
+  const cityNameElement = <HTMLElement>(
+    document.querySelector(".detailed-view__header")
+  );
   cityNameElement.textContent = weatherData.name;
 };
 
@@ -67,6 +69,17 @@ const displayErrorMsg = function () {
   errorMsgElement.textContent =
     "Sorry, we could not find the city you inputted :/";
   displaySuggestions(["You should input a proper city name"]);
+};
+
+const renderDetailedView = function (weatherData: any) {
+  const fieldsTextContent = report.getDetailedFields(weatherData);
+  const detailedInformationFields = <NodeList>(
+    document.querySelectorAll(".detailed-view__fields")
+  );
+
+  for (let i = 0; i < detailedInformationFields.length; i++) {
+    detailedInformationFields[i].textContent = fieldsTextContent[i];
+  }
 };
 
 const resetDisplay = function () {
@@ -94,5 +107,6 @@ export {
   displaySuggestions,
   displayTemperature,
   displayErrorMsg,
+  renderDetailedView,
   resetDisplay,
 };

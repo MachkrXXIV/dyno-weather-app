@@ -129,17 +129,22 @@ body {
   @include card-shadow($shadow-black);
   height: 50%;
   position: relative;
-  padding: 0.75rem 5rem 0.25rem 5rem;
+  padding: 0.75rem 5rem 0.75rem 5rem;
   border-radius: 15px;
-  font-size: 1.7rem;
+  font-size: 1rem;
   font-weight: bold;
   background-color: $bg-tertiary;
   transition: all ease-in 200ms;
-  // transform: translateY(15rem);
+  transform: translateY(6.5rem);
   cursor: pointer;
 
+  &__header {
+    text-align: center;
+    font-size: 1.7rem;
+  }
+
   &:hover {
-    transform: translateY(-2rem);
+    transform: translateY(5rem);
     background-color: red;
   }
 

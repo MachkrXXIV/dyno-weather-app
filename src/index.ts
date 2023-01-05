@@ -38,6 +38,7 @@ window.addEventListener("load", async (e) => {
   displayController.displayTemperature(weatherData);
   displayController.displayHiAndLo(weatherData);
   displayController.displayCityName(weatherData);
+  displayController.renderDetailedView(weatherData);
 });
 
 searchBarForm?.addEventListener("submit", async (e) => {
@@ -52,4 +53,5 @@ searchBarForm?.addEventListener("submit", async (e) => {
   displayController.displayTemperature(weatherData);
   displayController.displayHiAndLo(weatherData);
   displayController.displayCityName(weatherData);
+  displayController.renderDetailedView(weatherData);
 });
