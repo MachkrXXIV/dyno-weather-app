@@ -110,6 +110,17 @@ const suggestionsMap = {
   ],
 };
 
+const iconMap = {
+  Snow: "fa-snowflake",
+  Rain: "fa-cloud-showers-heavy",
+  Thunderstorm: "fa-cloud-bolt",
+  Drizzle: "fa-cloud-sun-rain",
+  Clouds: "fa-cloud",
+  Mist: "fa-smog",
+  Fog: "fa-smog",
+  Clear: "fa-sun",
+};
+
 const isWindy = function (weatherData: ForecastSimplifiedData) {
   return weatherData.wind > 15;
 };
@@ -152,6 +163,11 @@ const getSuggestions = function (headline: string) {
   return suggestionsMap[headline as keyof typeof suggestionsMap];
 };
 
-export { getHeadline, getSuggestions };
+const getIconClass = function (weatherData: any) {
+  console.log(iconMap[weatherData.classification as keyof typeof iconMap]);
+  return iconMap[weatherData.classification as keyof typeof iconMap];
+};
+
+export { getHeadline, getSuggestions, getIconClass };
 
 // do special keywords styling

@@ -8,11 +8,19 @@ const displayHeadline = function (headline: string) {
   headlineElement.textContent = headline;
 };
 
+const displayIcon = function (weatherData: any) {
+  const iconElement = document.querySelector(".temperature__icon");
+  iconElement?.classList.replace(
+    iconElement.classList[3],
+    report.getIconClass(weatherData)
+  );
+};
+
 const displayTemperature = function (weatherData: any) {
   const tempElement = <HTMLElement>(
     document.querySelector(".temperature__value")
   );
-  tempElement.textContent = weatherData.temp;
+  tempElement.textContent = `${Math.round(weatherData.temp)}°F`;
 };
 
 const displaySuggestions = function (suggestions: Array<string>) {
@@ -31,10 +39,12 @@ const displayHiAndLo = function (weatherData: any) {
   const tempRangeElement = <HTMLElement>(
     document.querySelector(".temperature__range")
   );
-  tempRangeElement.textContent = `H: ${weatherData.tempMax} L: ${weatherData.tempMin}`;
+  tempRangeElement.textContent = `H: ${Math.round(
+    weatherData.tempMax
+  )}°F L: ${Math.round(weatherData.tempMin)}°F`;
 };
 
-const displayCityName = function (weatherData: ForecastSimplifiedData) {
+const displayCityName = function (weatherData: any) {
   const cityNameElement = <HTMLElement>document.querySelector(".detailed-view");
   cityNameElement.textContent = weatherData.name;
 };
@@ -67,4 +77,12 @@ const resetDisplay = function () {
   clearSuggestionsContainer();
 };
 
-// const displayIcon =
+export {
+  displayCityName,
+  displayIcon,
+  displayHeadline,
+  displayHiAndLo,
+  displaySuggestions,
+  displayTemperature,
+  resetDisplay,
+};
