@@ -60,6 +60,15 @@ const clearSuggestionsContainer = function () {
   }
 };
 
+const displayErrorMsg = function () {
+  const errorMsgElement = <HTMLElement>(
+    document.querySelector(".report__headline")
+  );
+  errorMsgElement.textContent =
+    "Sorry, we could not find the city you inputted :/";
+  displaySuggestions(["You should input a proper city name"]);
+};
+
 const resetDisplay = function () {
   const headlineElement = <HTMLElement>(
     document.querySelector(".report__headline")
@@ -84,5 +93,6 @@ export {
   displayHiAndLo,
   displaySuggestions,
   displayTemperature,
+  displayErrorMsg,
   resetDisplay,
 };

@@ -21,25 +21,23 @@ const fetchCityTemp = async function (isInitialLoad = false) {
     const simplifiedForecastData = weather.convertData(forecastData);
     return simplifiedForecastData;
   } catch (err) {
+    displayController.displayErrorMsg();
     console.error(err);
   }
 };
 
 window.addEventListener("load", async (e) => {
-  try {
-    
-    displayController.resetDisplay();
-    e.preventDefault;
-    const weatherData = await fetchCityTemp(true);
-    const headline = getHeadline(weatherData);
-    const suggestions = getSuggestions(headline);
-    displayController.displayHeadline(headline);
-    displayController.displaySuggestions(suggestions);
-    displayController.displayIcon(weatherData);
-    displayController.displayTemperature(weatherData);
-    displayController.displayHiAndLo(weatherData);
-    displayController.displayCityName(weatherData);
-  }
+  displayController.resetDisplay();
+  e.preventDefault;
+  const weatherData = await fetchCityTemp(true);
+  const headline = getHeadline(weatherData);
+  const suggestions = getSuggestions(headline);
+  displayController.displayHeadline(headline);
+  displayController.displaySuggestions(suggestions);
+  displayController.displayIcon(weatherData);
+  displayController.displayTemperature(weatherData);
+  displayController.displayHiAndLo(weatherData);
+  displayController.displayCityName(weatherData);
 });
 
 searchBarForm?.addEventListener("submit", async (e) => {
