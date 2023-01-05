@@ -25,7 +25,19 @@ const fetchCityTemp = async function (isInitialLoad = false) {
   }
 };
 
-fetchCityTemp(true);
+window.addEventListener("load", async (e) => {
+  displayController.resetDisplay();
+  e.preventDefault;
+  const weatherData = await fetchCityTemp(true);
+  const headline = getHeadline(weatherData);
+  const suggestions = getSuggestions(headline);
+  displayController.displayHeadline(headline);
+  displayController.displaySuggestions(suggestions);
+  displayController.displayIcon(weatherData);
+  displayController.displayTemperature(weatherData);
+  displayController.displayHiAndLo(weatherData);
+  displayController.displayCityName(weatherData);
+});
 
 searchBarForm?.addEventListener("submit", async (e) => {
   displayController.resetDisplay();
