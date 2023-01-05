@@ -135,6 +135,8 @@ const isNormal = function (weatherData: ForecastSimplifiedData) {
 
 const getHeadline = function (weatherData: any) {
   if (weatherData.classification in weatherModifierOptions) {
+    if (weatherData.classification === "Clouds" && !isNormal(weatherData))
+      return printTempCategory(weatherData.temp);
     const value =
       weatherModifierOptions[
         weatherData.classification as keyof typeof weatherModifierOptions
