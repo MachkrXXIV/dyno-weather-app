@@ -11,9 +11,11 @@ const displayHeadline = function (headline: string) {
 const displayIcon = function (weatherData: any) {
   const iconElement = document.querySelector(".temperature__icon");
   iconElement?.classList.replace(
+    // replaces previous icon with new icon
     iconElement.classList[3],
     report.getIconClass(weatherData)
   );
+  setIconAnimation();
 };
 
 const displayTemperature = function (weatherData: any) {
@@ -82,6 +84,20 @@ const renderDetailedView = function (weatherData: any) {
   }
 };
 
+const setIconAnimation = function () {
+  const iconElement = <HTMLElement>document.querySelector(".temperature__icon");
+  const iconClassList = iconElement.classList;
+  const iconClassName = iconElement.classList[iconClassList.length - 1];
+
+  console.log(iconClassList[iconClassList.length - 1]);
+
+  if (iconClassList[3] === "fa-sun") {
+    iconClassList.replace(iconClassName, "fa-spin");
+  } else {
+    iconClassList.replace(iconClassName, "fa-beat-fade");
+  }
+};
+
 const resetDisplay = function () {
   const headlineElement = <HTMLElement>(
     document.querySelector(".report__headline")
@@ -108,5 +124,6 @@ export {
   displayTemperature,
   displayErrorMsg,
   renderDetailedView,
+  setIconAnimation,
   resetDisplay,
 };

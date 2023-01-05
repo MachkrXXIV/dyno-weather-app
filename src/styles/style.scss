@@ -121,6 +121,10 @@ body {
 .temperature {
   text-align: center;
 
+  &__icon {
+    margin-bottom: 1.5rem;
+  }
+
   &__range {
     font-size: 0.8rem;
     font-weight: bold;
