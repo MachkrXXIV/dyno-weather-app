@@ -5,6 +5,7 @@ import { getHeadline, getSuggestions } from "./modules/report";
 import * as displayController from "./modules/display";
 
 const searchBarForm = document.querySelector(".search-bar");
+const detailedView = document.querySelector(".detailed-view");
 
 const fetchCityTemp = async function (isInitialLoad = false) {
   try {
@@ -54,4 +55,15 @@ searchBarForm?.addEventListener("submit", async (e) => {
   displayController.displayHiAndLo(weatherData);
   displayController.displayCityName(weatherData);
   displayController.renderDetailedView(weatherData);
+});
+
+document.addEventListener("click", (e) => {
+  if (e.target != detailedView) {
+    detailedView?.classList.remove("detailed-view--active");
+  }
+});
+
+detailedView?.addEventListener("click", (e) => {
+  e.stopPropagation();
+  detailedView.classList.toggle("detailed-view--active");
 });

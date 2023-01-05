@@ -12,6 +12,7 @@ $pallete: (
 $bg-primary: map-get($pallete, black);
 $bg-secondary: map-get($pallete, space-grey);
 $bg-tertiary: map-get($pallete, ocean-green);
+$bg-tertiary--highlight: map-get($pallete, dark-green);
 $text-color-primary: map-get($pallete, white);
 $text-color-secondary: map-get($pallete, ocean-green);
 $shadow-black: rgb(30, 33, 36);
@@ -150,12 +151,11 @@ body {
     font-size: 1.7rem;
   }
 
-  &:hover {
+  &:hover:not(&--active) {
     transform: translateY(5rem);
-    background-color: red;
   }
 
-  &:active {
+  &--active {
     background-color: blue;
     transform: translateY(-10rem);
   }
