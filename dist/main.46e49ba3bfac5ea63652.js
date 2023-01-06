@@ -949,7 +949,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "search": () => (/* binding */ search)
 /* harmony export */ });
 const API_KEY = "4ebefd568a896d60b78e4d043eb08d81";
-// testing
+// its free anyways man
 const search = function getUserSearch() {
     const cityName = document.getElementById("search-bar");
     if (cityName) {
@@ -958,7 +958,7 @@ const search = function getUserSearch() {
     return "";
 };
 const buildCityCoordinatesUrl = function (cityName) {
-    return `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=${API_KEY}`;
+    return `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=${API_KEY}`;
 };
 const buildForecastUrl = function (coordinateData) {
     return `https://api.openweathermap.org/data/2.5/weather?lat=${coordinateData.lat}&lon=${coordinateData.lon}&units=imperial&exclude=minutely,alerts&appid=${API_KEY}`;
@@ -1245,4 +1245,4 @@ detailedView?.addEventListener("click", (e) => {
 
 /******/ })()
 ;
-//# sourceMappingURL=main.f11e46f35d59c496d074.js.map
+//# sourceMappingURL=main.46e49ba3bfac5ea63652.js.map

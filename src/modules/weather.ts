@@ -1,7 +1,7 @@
 import { ForecastSimplifiedData, CoordinateData } from "./interfaces";
 
 const API_KEY = "4ebefd568a896d60b78e4d043eb08d81";
-// testing
+// its free anyways man
 
 const search = function getUserSearch(): string {
   const cityName = <HTMLInputElement>document.getElementById("search-bar");
@@ -14,7 +14,7 @@ const search = function getUserSearch(): string {
 };
 
 const buildCityCoordinatesUrl = function (cityName: string): string {
-  return `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=${API_KEY}`;
+  return `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=${API_KEY}`;
 };
 
 const buildForecastUrl = function (coordinateData: any) {
