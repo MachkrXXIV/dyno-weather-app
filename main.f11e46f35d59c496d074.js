@@ -949,6 +949,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "search": () => (/* binding */ search)
 /* harmony export */ });
 const API_KEY = "4ebefd568a896d60b78e4d043eb08d81";
+// testing
 const search = function getUserSearch() {
     const cityName = document.getElementById("search-bar");
     if (cityName) {
@@ -1244,4 +1245,4 @@ detailedView?.addEventListener("click", (e) => {
 
 /******/ })()
 ;
-//# sourceMappingURL=main.8ca070c20c3a16be90ef.js.map
+//# sourceMappingURL=main.f11e46f35d59c496d074.js.map
