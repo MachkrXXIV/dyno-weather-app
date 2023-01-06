@@ -1,6 +1,7 @@
 import { ForecastSimplifiedData, CoordinateData } from "./interfaces";
 
 const API_KEY = "4ebefd568a896d60b78e4d043eb08d81";
+// testing
 
 const search = function getUserSearch(): string {
   const cityName = <HTMLInputElement>document.getElementById("search-bar");
