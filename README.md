@@ -1,5 +1,8 @@
 # dyno-weather-app
 
+## Live Demo
+https://machkrxxiv.github.io/dyno-weather-app/
+
 ## to setup config for future:
 
 1. npm init -y
@@ -10,7 +13,6 @@
 6. create eslint
 7. create .gitignore | put node_modules
 8. create webpack config, just copy what I have
-9.
 
 ## main learning objectives:
 
