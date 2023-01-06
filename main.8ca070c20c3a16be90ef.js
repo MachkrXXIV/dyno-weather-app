@@ -658,22 +658,6 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
-/***/ "./src/config.ts":
-/*!***********************!*\
-  !*** ./src/config.ts ***!
-  \***********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-const API_KEY = "4ebefd568a896d60b78e4d043eb08d81";
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (API_KEY);
-
-
-/***/ }),
-
 /***/ "./src/modules/display.ts":
 /*!********************************!*\
   !*** ./src/modules/display.ts ***!
@@ -964,8 +948,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "getCityForecast": () => (/* binding */ getCityForecast),
 /* harmony export */   "search": () => (/* binding */ search)
 /* harmony export */ });
-/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../config */ "./src/config.ts");
-
+const API_KEY = "4ebefd568a896d60b78e4d043eb08d81";
 const search = function getUserSearch() {
     const cityName = document.getElementById("search-bar");
     if (cityName) {
@@ -974,10 +957,10 @@ const search = function getUserSearch() {
     return "";
 };
 const buildCityCoordinatesUrl = function (cityName) {
-    return `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=${_config__WEBPACK_IMPORTED_MODULE_0__["default"]}`;
+    return `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=${API_KEY}`;
 };
 const buildForecastUrl = function (coordinateData) {
-    return `https://api.openweathermap.org/data/2.5/weather?lat=${coordinateData.lat}&lon=${coordinateData.lon}&units=imperial&exclude=minutely,alerts&appid=${_config__WEBPACK_IMPORTED_MODULE_0__["default"]}`;
+    return `https://api.openweathermap.org/data/2.5/weather?lat=${coordinateData.lat}&lon=${coordinateData.lon}&units=imperial&exclude=minutely,alerts&appid=${API_KEY}`;
 };
 const getCityCordinates = async function (url) {
     try {
@@ -1261,4 +1244,4 @@ detailedView?.addEventListener("click", (e) => {
 
 /******/ })()
 ;
-//# sourceMappingURL=main.42fed90c6c7c276b7b36.js.map
+//# sourceMappingURL=main.8ca070c20c3a16be90ef.js.map
