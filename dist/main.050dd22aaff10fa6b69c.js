@@ -872,6 +872,10 @@ const suggestionsMap = {
         suggestions.Hat,
         suggestions.Hydrate,
     ],
+    "Sweat sticks like honey today! You should...": [
+        suggestions.Hydrate,
+        suggestions.Summer,
+    ],
 };
 const iconMap = {
     Snow: "fa-snowflake",
@@ -893,6 +897,7 @@ const isNormal = function (weatherData) {
     return weatherData.temp >= 55 && weatherData.temp <= 78;
 };
 const getHeadline = function (weatherData) {
+    console.log(weatherData);
     if (weatherData.classification in weatherModifierOptions) {
         if (weatherData.classification === "Clouds" && !isNormal(weatherData))
             return printTempCategory(weatherData.temp);
@@ -908,11 +913,12 @@ const getHeadline = function (weatherData) {
         console.log("Sweat sticks like honey today! You should...");
         return "Sweat sticks like honey today! You should...";
     }
+    console.log("headline!");
     console.log(printTempCategory(weatherData.temp));
     return printTempCategory(weatherData.temp);
 };
 const getSuggestions = function (headline) {
-    console.log(suggestionsMap[headline]);
+    console.log("here", suggestionsMap[headline]);
     return suggestionsMap[headline];
 };
 const getIconClass = function (weatherData) {
@@ -1208,6 +1214,7 @@ window.addEventListener("load", async (e) => {
     e.preventDefault;
     const weatherData = await fetchCityTemp(true);
     const headline = (0,_modules_report__WEBPACK_IMPORTED_MODULE_3__.getHeadline)(weatherData);
+    console.log(headline);
     const suggestions = (0,_modules_report__WEBPACK_IMPORTED_MODULE_3__.getSuggestions)(headline);
     _modules_display__WEBPACK_IMPORTED_MODULE_4__.displayHeadline(headline);
     _modules_display__WEBPACK_IMPORTED_MODULE_4__.displaySuggestions(suggestions);
@@ -1245,4 +1252,4 @@ detailedView?.addEventListener("click", (e) => {
 
 /******/ })()
 ;
-//# sourceMappingURL=main.46e49ba3bfac5ea63652.js.map
+//# sourceMappingURL=main.050dd22aaff10fa6b69c.js.map
