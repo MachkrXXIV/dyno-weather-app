@@ -32,6 +32,7 @@ window.addEventListener("load", async (e) => {
   e.preventDefault;
   const weatherData = await fetchCityTemp(true);
   const headline = getHeadline(weatherData);
+  console.log(headline);
   const suggestions = getSuggestions(headline);
   displayController.displayHeadline(headline);
   displayController.displaySuggestions(suggestions);

@@ -1,6 +1,6 @@
 import { ForecastSimplifiedData } from "./interfaces";
 
-const printTempCategory = function (temp: Number) {
+const printTempCategory = function (temp: number) {
   if (temp <= 32) {
     return "Brrr... it's freezing. You should...";
   }
@@ -108,6 +108,10 @@ const suggestionsMap = {
     suggestions.Hat,
     suggestions.Hydrate,
   ],
+  "Sweat sticks like honey today! You should...": [
+    suggestions.Hydrate,
+    suggestions.Summer,
+  ],
 };
 
 const iconMap = {
@@ -134,6 +138,7 @@ const isNormal = function (weatherData: ForecastSimplifiedData) {
 };
 
 const getHeadline = function (weatherData: any) {
+  console.log(weatherData);
   if (weatherData.classification in weatherModifierOptions) {
     if (weatherData.classification === "Clouds" && !isNormal(weatherData))
       return printTempCategory(weatherData.temp);
@@ -155,13 +160,13 @@ const getHeadline = function (weatherData: any) {
     console.log("Sweat sticks like honey today! You should...");
     return "Sweat sticks like honey today! You should...";
   }
-
+  console.log("headline!");
   console.log(printTempCategory(weatherData.temp));
   return printTempCategory(weatherData.temp);
 };
 
 const getSuggestions = function (headline: string) {
-  console.log(suggestionsMap[headline as keyof typeof suggestionsMap]);
+  console.log("here", suggestionsMap[headline as keyof typeof suggestionsMap]);
   return suggestionsMap[headline as keyof typeof suggestionsMap];
 };
 
